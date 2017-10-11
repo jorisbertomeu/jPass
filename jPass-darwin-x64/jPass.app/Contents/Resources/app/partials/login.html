@@ -1,0 +1,36 @@
+<div ng-if="isConnecting && !connected" style="position:absolute; z-index:9999; width:100%; height: 100%; background-color: white;text-align: center;">
+  <img src="https://thumbs.gfycat.com/HotGrizzledAsianporcupine-max-1mb.gif"><br>
+  <h2>Processing connection ...</h2>
+</div>
+<div layout="column" class="relative" layout-fill role="main">
+  <md-content flex md-scroll-y>
+    <ui-view layout="column" layout-fill layout-padding>
+      <div class="inset" hide-sm></div>
+       <!--  <ng-switch on="data.selectedIndex" class="tabpanel-container"> -->
+          <div layout="row" layout-align="center center">
+            <div style="width:100%">
+              <form>
+                <md-input-container class="md-block">
+                  <label>Server</label>
+                  <input style="color:black" ng-model="connection.server">
+                </md-input-container>
+                 <md-input-container>
+                  <label>Username</label>
+                  <input style="color:black" ng-model="connection.username">
+                </md-input-container>
+                <md-input-container><br>
+                  <md-button ng-click="selectPrivateKey()" class="md-raised md-primary">{{(connection.keyPath != null) ? connection.keyPath : "Click to select your key ..."}}</md-button>
+                </md-input-container>
+                <md-input-container>
+                  <label>Key's password</label>
+                  <input style="color:black" type="password" ng-model="connection.password">
+                </md-input-container>
+                <button ng-click="connectMe()" type="button" class="button buttonBlue">Come on!
+                  <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                </button>
+              </form>
+            </div>
+          </div>
+    </ui-view>
+  </md-content>
+</div>
